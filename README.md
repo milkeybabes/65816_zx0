@@ -50,8 +50,8 @@ Performance will vary depending on:
 
 ## ⚙️ Integration
 
-### 1. Include the source, you can remove/modify the macros to suit your system, left here to keep the source readable
-##  2. We decompress to RAM UNPACK_BUFFER, the source data normally ROM can also be RAM is desired. Source data doesn't transverse banks.
+### 1. Include the source; you can remove/modify the macros to suit your system. Left here to keep the source readable
+##  2. We decompress to RAM UNPACK_BUFFER; the source data, normally in ROM, can also be in RAM if desired. Source data doesn't traverse banks.
 ```asm
 
 .include "65815_zc0_unpacker.asm"
@@ -59,13 +59,37 @@ Performance will vary depending on:
 
 ; unpacker for ZX0 as this will be new compressions
 
-  LongAI            ; Be Sure pass I in 16bits, A can be 8bits
-	LDX	#<>lz_test		; small test data word offset
-	LDA	#`lz_test		  ; A is the bank number $80 - $xx 
+  LongAI	; Be Sure pass I in 16bits, A can be 8bits
+	LDX	#<>lz_test	; small test data word offset
+	LDA	#`lz_test	; A is the bank number $80 - $xx 
 	JSR	ZX0_DECOMPRESS_V2
 
-lz_test:
-	.BINARY "mydata/MyGameMaps.zx0"
+```
+## 📚 ZX0 References
+
+Original ZX0 project and documentation:
+
+https://github.com/einar-saukas/ZX0
+
+Additional notes:
+- Different ZX0 encoders may produce slightly different bitstreams
+- All compliant streams should decompress correctly with this implementation
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License.
+
+## 🙏 Attribution
+
+If you use this code in your project, a credit or mention is greatly appreciated.
+
+## ⭐ Final Thoughts
+
+This project aims to provide a **practical, high-quality 65816 decompressor**
+that fits naturally into real development pipelines.
+
 
 
 
