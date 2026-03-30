@@ -1,4 +1,4 @@
-# 65816 ZX0 Decompressor (SNES / Super Famicom)
+# 65816 ZX0 v2 Decompressor (SNES / Super Famicom)
 
 A high-performance **ZX0 decompressor written in 65816 assembly**, designed primarily for the **SNES / Super Famicom**, but easily adaptable to other 65816-based systems.
 
